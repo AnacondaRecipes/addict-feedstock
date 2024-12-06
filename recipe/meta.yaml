@@ -13,6 +13,7 @@ build:
   noarch: python
   number: 2
   script: {{ PYTHON }} -m pip install . -vv
+  skip: True # [not linux64]
 
 requirements:
   host:
@@ -36,6 +37,13 @@ about:
   summary: Addict is a dictionary whose items can be set using both attribute and item syntax.
 
 extra:
-  recipe-maintainers:
-    - Ohjeah
-    - jpn--
+  skip-lints:
+    - missing_source
+    - avoid_noarch
+    - missing_doc_url
+
+  services:
+    recipe-maintainers:
+       - bkreider
+    comment: "https://anaconda.zendesk.com/agent/tickets/49247"
+

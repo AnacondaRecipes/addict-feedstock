@@ -12,13 +12,14 @@ source:
 build:
   noarch: python
   number: 2
-  script: {{ PYTHON }} -m pip install . -vv
+  script: {{ PYTHON }} -m pip install . -vv --no-deps and --no-build-isolation
   skip: True # [not linux64]
 
 requirements:
   host:
     - python >=3.6
     - pip
+    - wheel
   run:
     - python >=3.6
 
@@ -34,13 +35,16 @@ about:
   home: https://github.com/mewwts/addict
   license: MIT
   license_file: LICENSE
+  license_family: MIT
+  dev_url: https://github.com/mewwts/addict
+  doc_url: https://github.com/mewwts/addict
   summary: Addict is a dictionary whose items can be set using both attribute and item syntax.
+  description: a Python module that gives you dictionaries whose values are both gettable and settable using attributes, in addition to standard item-syntax.
 
 extra:
   skip-lints:
     - missing_source
     - avoid_noarch
-    - missing_doc_url
 
   services:
     recipe-maintainers:
